@@ -1,6 +1,10 @@
 <div>
 
     <button  wire:navigate class="btn btn-success" href="/customers/create/">Create</button>
+     <p>
+    <livewire:flash-message />
+     </p>
+
     <table class="table">
         <thead>
           <tr>
@@ -21,8 +25,8 @@
                 <td>{{ $c->phone }}</td>
                 <td>
                     <button wire:navigate href="/customers/{{ $c->id }}" class="btn btn-primary btn-sm">View</button>
-                    <button class="btn btn-secondary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Delete</button>
+                    <button wire:navigate href="/customers/{{ $c->id }}/edit" class="btn btn-secondary btn-sm">Edit</button>
+                    <button wire:click='delete({{ $c->id }})' class="btn btn-danger btn-sm">Delete</button>
                 </td>
             </tr>
 

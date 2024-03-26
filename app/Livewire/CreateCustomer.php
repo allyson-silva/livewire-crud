@@ -21,6 +21,9 @@ class CreateCustomer extends Component
         Customer::create($validated);
 
         $this->reset();
+
+        session()->flash('message', 'Customer Stored Successfully');
+        return $this->redirect('/customers', navigate:true);
     }
 
 

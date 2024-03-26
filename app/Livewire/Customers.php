@@ -18,4 +18,11 @@ class Customers extends Component
     {
         return view('livewire.customers');
     }
+
+    public function delete($id)
+    {
+        Customer::findOrFail($id)->delete();
+        session()->flash('message', 'Customer Deleted Successfully');
+        return $this->redirect('/customers', navigate:true);
+    }
 }
